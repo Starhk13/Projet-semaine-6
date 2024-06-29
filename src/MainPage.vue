@@ -1,0 +1,153 @@
+<script setup>
+import { ref } from 'vue';
+import Activity from './Activity.vue';
+import Stats from './Stats.vue';
+import Strongest from './Strongest.vue';
+import Weakest from './Weakest.vue';
+import UserLead from './UserLead.vue';
+import Groups from './Groups.vue';
+
+const numbers = ref(["27", "3298", "2m 34s", "64%", "86%", "+34%"]);
+const oldNumbers = ref(["27", "3298", "2m 34s", "64%", "86%", "+34%"]);
+
+const handleClick = () => {
+    oldNumbers.value = numbers.value;
+    numbers.value = [
+        `${Math.floor(Math.random() * 81)}`,
+        `${Math.floor(Math.random() * 3001)}`,
+        `${Math.floor(Math.random() * 5) + 1}m ${Math.floor(Math.random() * 60)}s`,
+        `${Math.floor(Math.random() * 101)}%`,
+        `${Math.floor(Math.random() * 101)}%`,
+        `+${Math.floor(Math.random() * 201)}%`
+    ]
+}
+
+</script>
+
+<template>
+<main>
+    <header class="header-top-page">
+        <h1>Reports</h1>
+        <button class="aleatoire" @click="handleClick" >Aléatoire</button>
+    </header>
+        <div class="filter">
+            <select name="" id="">
+                <option value="value-one">Timeframe:  <span class="span">All-time</span></option>
+                <option value="value-two">Timeframe:  <span class="span">Last month</span></option>
+                <option value="value-three">Timeframe:  <span cla="span">Last-week</span></option>
+                <option value="value-four">Timeframe:  <span clas="span">Today</span></option>
+            </select>
+            <select name="" id="">
+                <option value="value-one">People: <span class="span">All</span></option>
+                <option value="value-two">People: <span class="span">New</span></option>
+                <option value="value-three">People: <span cla="span">Old</span></option>
+            </select>
+            <select name="" id="">
+                <option value="value-one">Topic:  <span class="span">All</span></option>
+                <option value="value-two">Topic:  <span class="span">Last month</span></option>
+                <option value="value-three">Topic:  <span cla="span">Last-week</span></option>
+            </select>
+        </div>
+        <div class="card-contain-top">
+            <Stats :numbers="numbers" :oldNumbers="oldNumbers"/>
+            <Activity/> 
+        </div> 
+        <div class="card-contain-middle">
+            <Weakest/>
+            <Strongest/>
+        </div>
+        <div class="card-contain-bottom">
+            <UserLead/>
+            <Groups/>
+        </div>
+</main>
+</template>
+
+<style lang="scss" >
+main {
+    flex: 1;
+    flex-grow: 1;
+    margin-left: 0;
+    background-color: rgb(255, 243, 243);
+}
+
+.header-top-page {
+    max-width: 1110px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 103px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+
+    h1 {
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    $background-color: rgb(255, 243, 243);
+
+    .aleatoire {
+        background-color: $background-color;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgba(77, 77, 77, 1);
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: white;
+            border-radius: 25px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+    }
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1110px;
+    margin: 28px auto 21px auto;
+    
+    select {
+        width: 365px;
+        height: 49px;
+        border-radius: 20px;
+        border-color: rgba(239, 240, 246, 1);
+        padding-left: 15px;
+        padding-right: 15px;
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+.card-contain-top {
+    display: flex;
+    max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.card-contain-middle {
+    display: flex;
+    max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.card-contain-bottom {
+    display: flex;
+    max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+
+</style>
