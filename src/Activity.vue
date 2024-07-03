@@ -94,9 +94,10 @@
 <style lang="scss" >
 .card-activity {
     background-color: white;
-    width: 543px; 
+    width: 546px; 
     border-radius: 20px;
-    margin-bottom: 17px;   
+    margin-bottom: 17px; 
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
 }
 
 .header-activity {

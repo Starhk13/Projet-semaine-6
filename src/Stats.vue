@@ -29,42 +29,42 @@ const props = defineProps({
 
 <template>
     <div class="card-stats">
-                <div class="active-users mini-card">
-                    <p>Active Users</p>
-                    <br>
-                    <NumberAnimation :from="oldNumbers[0]" :to="numbers[0]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
-                    <span class="denominateur">/80</span>
-                </div>
-                <div class="questions-answered mini-card">
-                    <p>Questions Answered</p>
-                    <br>
-                    <NumberAnimation :from="oldNumbers[1]" :to="numbers[1]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
-                </div>
-                <div class="av-session mini-card">
-                    <p>Av. Session Length</p>
-                    <br>
-                    <NumberAnimation :from="oldNumbers[2]" :to="numbers[2]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
-                </div>
-                <div class="starting-knowledge mini-card">
-                    <p>Starting Knowledge</p>
-                    <br>
-                    <NumberAnimation :from="oldNumbers[3]" :to="numbers[3]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
-                    <img src="./img/graph.svg" alt="graphique">
-                </div>
-                <div class="current-knowledge mini-card">
-                    <p>Current Knowledge</p>
-                    <br>
-                    <NumberAnimation :from="oldNumbers[4]" :to="numbers[4]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
-                    <img src="./img/graph.svg" alt="graphique">
-                </div>
-                <div class="knwoledge-gain mini-card">
-                    <p>Knwoledge Gain</p>
-                    <br>
-                    <span>+</span>
-                    <NumberAnimation :from="oldNumbers[5]" :to="numbers[5]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
-                    <img src="./img/graph.svg" alt="graphique">
-                </div>
-            </div>    
+      <div class="active-users mini-card">
+          <p>Active Users</p>
+          <br>
+          <NumberAnimation :from="oldNumbers[0]" :to="numbers[0]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
+          <span class="denominateur">/80</span>
+      </div>
+      <div class="questions-answered mini-card">
+          <p>Questions Answered</p>
+          <br>
+          <NumberAnimation :from="oldNumbers[1]" :to="numbers[1]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
+      </div>
+      <div class="av-session mini-card">
+          <p>Av. Session Length</p>
+          <br>
+          <NumberAnimation :from="oldNumbers[2]" :to="numbers[2]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
+      </div>
+      <div class="starting-knowledge mini-card">
+          <p>Starting Knowledge</p>
+          <br>
+          <NumberAnimation :from="oldNumbers[3]" :to="numbers[3]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
+          <img src="./img/graph.svg" alt="graphique">
+      </div>
+      <div class="current-knowledge mini-card">
+          <p>Current Knowledge</p>
+          <br>
+          <NumberAnimation :from="oldNumbers[4]" :to="numbers[4]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
+          <img src="./img/graph.svg" alt="graphique">
+      </div>
+      <div class="knwoledge-gain mini-card">
+          <p>Knwoledge Gain</p>
+          <br>
+          <span>+</span>
+          <NumberAnimation :from="oldNumbers[5]" :to="numbers[5]" :duration="0.5" :format="formatNumber" autoplay easing="linear" />
+          <img src="./img/graph.svg" alt="graphique">
+      </div>
+    </div>    
 </template>
 
 <style lang="scss">
@@ -72,10 +72,9 @@ const props = defineProps({
 
 .card-stats {
     display: flex;
-    max-width: 543px;
+    max-width: 546px;
     flex-wrap: wrap;
-    justify-content: space-between;
-    
+    justify-content: space-between;  
 }
 
 .mini-card {
@@ -84,6 +83,7 @@ const props = defineProps({
     height: 152px;
     border-radius: 20px;
     margin-bottom: 17px;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
     
     p {
         text-align: center;

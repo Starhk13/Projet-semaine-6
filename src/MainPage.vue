@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue';
 import Activity from './Activity.vue';
+import Groups from './Groups.vue';
 import Stats from './Stats.vue';
 import Strongest from './Strongest.vue';
-import Weakest from './Weakest.vue';
 import UserLead from './UserLead.vue';
-import Groups from './Groups.vue';
+import Weakest from './Weakest.vue';
 
 const numbers = ref(["27", "3298", "2m 34s", "64%", "86%", "+34%"]);
 const oldNumbers = ref(["27", "3298", "2m 34s", "64%", "86%", "+34%"]);
@@ -68,7 +68,7 @@ main {
     flex: 1;
     flex-grow: 1;
     margin-left: 0;
-    background-color: rgb(255, 243, 243);
+    background-color: rgba(245, 245, 245, 1);
 }
 
 .header-top-page {
@@ -86,14 +86,12 @@ main {
         font-size: 24px;
     }
 
-    $background-color: rgb(255, 243, 243);
-
     .aleatoire {
-        background-color: $background-color;
+        background-color: rgba(245, 245, 245, 1);
         font-size: 14px;
         font-weight: 600;
         color: rgba(77, 77, 77, 1);
-        padding: 5px;
+        padding: 10px 15px;
         border-radius: 10px;
         cursor: pointer;
 

@@ -29,7 +29,7 @@
         color: rgba(0, 0, 0, 0.7);
         text-align: center;
         background-color: white;
-        
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
 
         img {
             margin: 40px 0;
