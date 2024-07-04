@@ -1,4 +1,22 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+const months = ref([
+   { month :"JAN", activity: 25 },
+   { month: "FEB", activity: 30 },
+   { month: "MAR", activity: 30 },
+   { month: "APR", activity: 66 },
+   { month: "MAY", activity: 70 },
+   { month: "JUN", activity: 50 },
+   { month: "JUL", activity: 66 },
+   { month: "AUG", activity: 20 },
+   { month: "SEP", activity: 70 },
+   { month: "OCT", activity: 80 },
+   { month: "NOV", activity: 90 },
+   { month: "DEC", activity: 100 },
+])
+
+</script>
 
 <template>
     <div class="card-activity">
@@ -14,80 +32,13 @@
                 <span>100</span><br>
                 <span>0</span>
             </div>
-            <div>
+            <div v-for="month in months" :key="month.month">
                 <div class="progress-bar-month">
-                    <span style="height: 25%;"></span> 
-                </div>
-                <p>JAN</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 30%;"></span> 
-                </div>
-                <p>FEB</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 30%;"></span> 
-                </div>
-                <p>MAR</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 66%;"></span> 
-                </div>
-                <p>APR</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 70%;"></span> 
-                </div>
-                <p>MAY</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 50%;"></span> 
-                </div>
-                <p>JUN</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 66%;"></span> 
-                </div>
-                <p>JUL</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 20%;"></span> 
-                </div>
-                <p>AUG</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 70%;"></span> 
-                </div>
-                <p>SEP</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 80%;"></span> 
-                </div>
-                <p>OCT</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 90%;"></span> 
-                </div>
-                <p>NOV</p>
-            </div>
-            <div>
-                <div class="progress-bar-month">
-                    <span style="height: 100%;"></span> 
-                </div>
-                <p>DEC</p>
+                    <span :style="{ height: month.activity + '%' }"></span>
+                </div> 
+                <p>{{ month.month }}</p>
             </div>
         </main>
-
     </div>
 </template>
 
