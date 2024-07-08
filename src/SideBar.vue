@@ -4,15 +4,15 @@
     <aside>
         <img src="./img/TESLA.png" alt="titre">
         <ul>
-            <li class="active">Reports</li>
-            <li class="library">Library</li>
-            <li class="people">People</li>
-            <li class="activities">Activities</li>
+            <li class="active">Reports</li> 
+            <li class="library">Library</li>    
+            <li class="people">People</li>  
+            <li class="activities">Activities</li>    
         </ul>
         <h2>Support</h2>
         <ul>
-            <li class="started">Get Started</li>
-            <li class="settings">Settings</li>
+            <li class="started">Get Started</li>    
+            <li class="settings">Settings</li>  
         </ul>
         <footer class="footer-aside">
             <img src="./img/sam.png" alt="">
@@ -30,6 +30,7 @@
         text-align: center;
         background-color: white;
         box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+        height: 1246px;
 
         img {
             margin: 40px 0;

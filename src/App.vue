@@ -1,13 +1,14 @@
 <script setup>
 import '@/fonts/stylesheet.css';
-import MainPage from './MainPage.vue';
+
 import SideBar from './SideBar.vue';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
     <div class="container">
         <SideBar/>
-        <MainPage/>     
+        <RouterView/>     
     </div>
 </template>
 
@@ -24,6 +25,10 @@ body {
 
 .drop-shadow {
     filter: drop-shadow(0 , 5px, 20px, rgba(0, 0, 0, 0.05));
+}
+
+.custom-link {
+  all: unset;
 }
 </style>
 
