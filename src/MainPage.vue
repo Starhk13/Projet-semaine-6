@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { useStats } from './storeDataStats';
 import Activity from './Activity.vue';
 import Groups from './Groups.vue';
 import Stats from './Stats.vue';
@@ -7,19 +7,10 @@ import Strongest from './Strongest.vue';
 import UserLead from './UserLead.vue';
 import Weakest from './Weakest.vue';
 
-const numbers = ref(["27", "3298", "2m 34s", "64%", "86%", "+34%"]);
-const oldNumbers = ref(["27", "3298", "2m 34s", "64%", "86%", "+34%"]);
+const store = useStats()
 
 const handleClick = () => {
-    oldNumbers.value = numbers.value;
-    numbers.value = [
-        `${Math.floor(Math.random() * 81)}`,
-        `${Math.floor(Math.random() * 3001)}`,
-        `${Math.floor(Math.random() * 5) + 1}m ${Math.floor(Math.random() * 60)}s`,
-        `${Math.floor(Math.random() * 101)}%`,
-        `${Math.floor(Math.random() * 101)}%`,
-        `+${Math.floor(Math.random() * 201)}%`
-    ]
+    store.updateNumbers()
 }
 
 </script>
@@ -49,7 +40,7 @@ const handleClick = () => {
             </select>
         </div>
         <div class="card-contain-top">
-            <Stats :numbers="numbers" :oldNumbers="oldNumbers"/>
+            <Stats :numbers="store.numbers" :oldNumbers="store.oldNumbers"/>
             <Activity/> 
         </div> 
         <div class="card-contain-middle">

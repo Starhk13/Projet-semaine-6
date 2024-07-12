@@ -1,5 +1,6 @@
 <script setup>
 import NumberAnimation from 'vue-number-animation';
+import { useStats } from './storeDataStats';
 
 const formatNumber = (value) => {
   if (typeof value === 'number') {
@@ -21,14 +22,8 @@ const formatNumber = (value) => {
   return value;
 };
 
-const stats = [
-  { title: 'Active Users', graph: false },
-  { title: 'Questions Answered', graph: false },
-  { title: 'Av. Session Length', graph: false },
-  { title: 'Starting Knowledge', graph: true },
-  { title: 'Current Knowledge', graph: true },
-  { title: 'Knowledge Gain', graph: true },
-];
+const store = useStats()
+const stats = store.stats
 
 
 const props = defineProps({
