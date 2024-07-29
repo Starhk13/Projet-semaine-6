@@ -4,9 +4,9 @@
     <aside>
         <img src="./img/TESLA.png" alt="titre">
         <ul>
-            <li class="active">Reports</li> 
+            <router-link :to="`/`" class="custom-link" ><li class="active">Reports</li></router-link> 
             <li class="library">Library</li>    
-            <li class="people">People</li>  
+            <router-link :to="`/people`" class="custom-link" ><li class="people">People</li></router-link>  
             <li class="activities">Activities</li>    
         </ul>
         <h2>Support</h2>
@@ -30,7 +30,8 @@
         text-align: center;
         background-color: white;
         box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
-        height: 1246px;
+        min-height: 1246px;
+        height: 100%;
 
         img {
             margin: 40px 0;

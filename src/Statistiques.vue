@@ -13,6 +13,9 @@ import { useStats } from './storeDataStats';
 
 <template>
     <main>
+      <header class="header-top-page">
+        <h1>{{ stat.title }}</h1>
+    </header>
       <div>
         <h1>{{ stat.title }}</h1>
         <p>{{ number }}</p>
@@ -22,6 +25,22 @@ import { useStats } from './storeDataStats';
   </template>
   
 <style lang="scss" scoped >
+  .header-top-page {
+    max-width: 1110px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 103px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+
+    h1 {
+        font-weight: bold;
+        font-size: 24px;
+    }
+  }
+
   div {
     max-width: 171px;
     margin-left: auto;
@@ -44,5 +63,6 @@ import { useStats } from './storeDataStats';
       margin-bottom: 15px;
     }
   }
+
 </style>
   

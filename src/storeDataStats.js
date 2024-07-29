@@ -1,4 +1,5 @@
-import { defineStore } from 'pinia'
+import axios from 'axios';
+import { defineStore } from 'pinia';
 
 export const useStats = defineStore({
   id: 'main',
@@ -15,7 +16,7 @@ export const useStats = defineStore({
       ]
   }),
   actions: {
-    updateNumbers() {
+    async updateNumbers() {
       this.oldNumbers = this.numbers;
       this.numbers = [
         `${Math.floor(Math.random() * 81)}`,
@@ -25,6 +26,16 @@ export const useStats = defineStore({
         `${Math.floor(Math.random() * 101)}%`,
         `+${Math.floor(Math.random() * 201)}%`
       ]
+      
+      try {
+        const response = await axios.put('http://localhost:8000/statistiques/updateStatistiques', {
+          numbers: this.numbers,
+          id: '1'
+        })
+        console.log(response.data.message)
+      } catch (error) {
+        console.log(error)
+      }
     },
   },
 })

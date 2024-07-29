@@ -78,19 +78,17 @@ main {
     }
 
     .aleatoire {
-        background-color: rgba(245, 245, 245, 1);
-        font-size: 14px;
-        font-weight: 600;
-        color: rgba(77, 77, 77, 1);
+        background-color: rgb(178, 216, 240);
+        font-size: 15px;
+        font-weight: 700;
+        color: black;
         padding: 10px 15px;
         border-radius: 10px;
         cursor: pointer;
 
         &:hover{
-            background-color: white;
-            border-radius: 25px;
-            padding: 20px;
-            transition: 0.3s;
+            color: white;
+            background-color: darken(rgb(178, 216, 240), 25%);
         }
     }
 }
