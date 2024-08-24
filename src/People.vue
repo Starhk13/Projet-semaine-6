@@ -236,7 +236,6 @@ function editUser(user) {
         </div>
     </div>
     </div>
-    <div></div>
 </body>
 </template>
 

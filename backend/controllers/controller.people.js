@@ -18,8 +18,7 @@ exports.postPeople = async (req, res) => {
         await pool.query(
             `INSERT INTO people (first_name, last_name, email, age, role, registered_at) 
             VALUES (?, ?, ?, ?, ?, CURDATE())`,
-            [newUser.firstName, newUser.lastName, newUser.email, newUser.age, newUser.role]
-        );
+            [newUser.firstName, newUser.lastName, newUser.email, newUser.age, newUser.role]);
         res.json({ message: "Les données ont bien été enregistrées"});
     } catch (error) {
         console.error(error);

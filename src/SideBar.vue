@@ -1,12 +1,23 @@
-<script></script>
+<script setup>
+import { useAuthStore } from './authStore' // Importer le store d'authentification
+
+const authStore = useAuthStore()
+</script>
 
 <template>
     <aside>
         <img src="./img/TESLA.png" alt="titre">
         <ul>
-            <router-link :to="`/`" class="custom-link" ><li class="active">Reports</li></router-link> 
+            <router-link :to="`/`" class="custom-link" >
+                <li class="active">Reports</li>
+            </router-link> 
             <li class="library">Library</li>    
-            <router-link :to="`/people`" class="custom-link" ><li class="people">People</li></router-link>  
+            <router-link v-if="authStore.isAuthenticated" :to="`/people`" class="custom-link" >
+                <li class="people">People</li>
+            </router-link>  
+            <router-link v-if="authStore.isAuthenticated" :to="`/profile`" class="custom-link" >
+                <li class="people">Mon profil</li>
+            </router-link>
             <li class="activities">Activities</li>    
         </ul>
         <h2>Support</h2>

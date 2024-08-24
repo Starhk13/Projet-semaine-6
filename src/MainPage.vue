@@ -1,16 +1,49 @@
 <script setup>
-import { useStats } from './storeDataStats';
 import Activity from './Activity.vue';
 import Groups from './Groups.vue';
 import Stats from './Stats.vue';
+import { useStats } from './storeDataStats';
 import Strongest from './Strongest.vue';
 import UserLead from './UserLead.vue';
 import Weakest from './Weakest.vue';
+import { useRouter } from 'vue-router'
+import ConfirmLogout from './ConfirmLogout.vue';
+import { ref } from 'vue'
+import { useToast } from 'vue-toast-notification'
+import { useAuthStore } from './authStore'
 
 const store = useStats()
+const authStore = useAuthStore()
+const router = useRouter()
+const toast = useToast()
+const showDialog = ref(false)
 
 const handleClick = () => {
     store.updateNumbers()
+}
+
+const logout = () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('tokenExpiration');
+  authStore.logout()
+  toast.success("Vous êtes déconnecté.", {
+    duration: 3000,
+    position: "top"
+  });
+  router.push('/');
+}
+
+const confirmLogout = () => {
+  showDialog.value = true
+}
+
+const handleConfirm = () => {
+  showDialog.value = false
+  logout()
+}
+
+const handleCancel = () => {
+  showDialog.value = false
 }
 
 </script>
@@ -19,24 +52,35 @@ const handleClick = () => {
 <main>
     <header class="header-top-page">
         <h1>Reports</h1>
-        <button class="aleatoire" @click="handleClick" >Aléatoire</button>
+        <div>
+            <router-link v-if="!authStore.isAuthenticated" :to="'/login'" class="custom-link">
+                <button class="aleatoire">Se connecter</button>
+            </router-link>
+            <router-link v-if="!authStore.isAuthenticated" :to="'/register'" class="custom-link" >
+                <button class="aleatoire">Créer un compte</button>
+            </router-link>
+            <button v-if="authStore.isAuthenticated" class="aleatoire" @click="confirmLogout">Se déconnecter</button>
+            <button class="aleatoire" @click="handleClick" >Aléatoire</button>
+        </div>
     </header>
+    <ConfirmLogout :visible="showDialog" message="Êtes-vous sûr de vouloir vous déconnecter ?"
+    @confirm="handleConfirm" @cancel="handleCancel" />
         <div class="filter">
             <select name="" id="">
                 <option value="value-one">Timeframe:  <span class="span">All-time</span></option>
                 <option value="value-two">Timeframe:  <span class="span">Last month</span></option>
-                <option value="value-three">Timeframe:  <span cla="span">Last-week</span></option>
+                <option value="value-three">Timeframe:  <span class="span">Last-week</span></option>
                 <option value="value-four">Timeframe:  <span clas="span">Today</span></option>
             </select>
             <select name="" id="">
                 <option value="value-one">People: <span class="span">All</span></option>
                 <option value="value-two">People: <span class="span">New</span></option>
-                <option value="value-three">People: <span cla="span">Old</span></option>
+                <option value="value-three">People: <span class="span">Old</span></option>
             </select>
             <select name="" id="">
                 <option value="value-one">Topic:  <span class="span">All</span></option>
                 <option value="value-two">Topic:  <span class="span">Last month</span></option>
-                <option value="value-three">Topic:  <span cla="span">Last-week</span></option>
+                <option value="value-three">Topic:  <span class="span">Last-week</span></option>
             </select>
         </div>
         <div class="card-contain-top">
@@ -84,6 +128,7 @@ main {
         color: black;
         padding: 10px 15px;
         border-radius: 10px;
+        margin-left: 5px;
         cursor: pointer;
 
         &:hover{
